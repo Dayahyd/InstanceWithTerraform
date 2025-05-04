@@ -1,0 +1,14 @@
+# Verify User Permissions
+# Go to IAM → Users → k8
+
+# Check for an inline policy or attached managed policy that grants:
+{
+        "Version": "2012-10-17",
+        "Statement": {
+                "Effect": "Allow",
+                "Action": "sts:AssumeRole",
+                "Resource": "arn:aws:iam::311141550859:role/k8wk"
+        }
+}
+
+

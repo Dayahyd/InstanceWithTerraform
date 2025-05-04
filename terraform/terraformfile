@@ -1,0 +1,24 @@
+#EC2 Instance
+# terraform flie for creating ec2 instance
+provider "aws" {
+  region = "ap-south-1" # Replace with your region
+
+  # Assume role configuration
+  assume_role {
+    role_arn = "arn:aws:iam::311141550859:role/es" # Replace with your role ARN
+    session_name = "terraform-session"
+  }
+}
+
+resource "aws_instance" "amazon_instance" {
+  ami           = "ami-062f0cc54dbfd8ef1" # Replace with your desired AMI
+  instance_type = "t2.micro"
+  key_name      = "project"    # Replace with your SSH key pair name
+
+  vpc_security_group_ids = ["sg-0ed9a86a6eb5eb52d"] # Replace with your security group ID
+
+  tags = {
+    Name = "linux-t2-micro"
+  }
+}
+

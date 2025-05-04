@@ -1,0 +1,21 @@
+# Check Role Trust Relationship
+# Go to AWS IAM Console → Roles → k8wk
+
+# Examine the "Trust relationships" tab
+
+# Ensure it includes your user (arn:aws:iam::311141550859:user/k8) in the Principal
+
+
+# this file must be updated in iam role trustrelationship
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::311141550859:user/k8"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
